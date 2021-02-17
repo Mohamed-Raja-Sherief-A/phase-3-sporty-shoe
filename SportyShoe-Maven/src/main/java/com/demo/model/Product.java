@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -34,6 +35,9 @@ private String category;
 private List<Order> orders;
 
 private String status;
+
+@Min(value = 1,message = "minimum value should be 1")
+private double amount;
 
 public Product() {
 	
@@ -75,6 +79,13 @@ public String getStatus() {
 }
 public void setStatus(String status) {
 	this.status = status;
+}
+
+public double getAmount() {
+	return amount;
+}
+public void setAmount(double amount) {
+	this.amount = amount;
 }
 @Override
 public String toString() {

@@ -25,7 +25,7 @@ for(Order order:orders)
 	SimpleDateFormat formatter=new SimpleDateFormat(
 		      "dd/MM/yyyy");
 	out.print("<div class='subcontainer'>");
-	out.print("Date:"+formatter.format(order.getDateofpurchase())+"   Product:"+order.getProduct().getName()+"   Category:"+order.getProduct().getCategory());
+	out.print("Date:"+formatter.format(order.getDateofpurchase())+"   Product:"+order.getProduct().getName()+"   Category:"+order.getProduct().getCategory()+"   Amount:"+order.getProduct().getAmount());
 	out.print("</div>");
 }
 %>

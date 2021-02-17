@@ -21,6 +21,7 @@
 			<form:option value="Tshirt">Tshirt</form:option>
 			<form:option value="Sports Item">Sports Item</form:option>
 			</form:select>
+			Enter Product Amount:<form:errors path="amount"/><form:input path="amount"/>
 			<input type="submit" value="Add"/><br/>
 		</form:form>
 		<a href="showProductMenu">Back</a><br/>

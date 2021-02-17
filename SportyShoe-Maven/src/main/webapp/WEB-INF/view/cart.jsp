@@ -13,16 +13,19 @@
 <header><h1>Cart</h1></header>
 <div class="container">
 <%
+double total=0;
 ArrayList<Product> products=(ArrayList<Product>)session.getAttribute("cart");//Cart call from session
 for(Product product:products)
 {
 	out.print("<div class='subcontainer'>");
-	out.print("Product:"+product.getName()+" Category:"+product.getCategory()+"   <a href='DeleteCart?id="+product.getPid()+"'class='delete'>Delete</a>");
+	out.print("Product:"+product.getName()+" Category:"+product.getCategory()+" Amount:"+product.getAmount()+"   <a href='DeleteCart?id="+product.getPid()+"'class='delete'>Delete</a>");
 	out.print("</div>");
+	total+=product.getAmount();
 }
 %>
 </div>
 <br><br>
+<h3> Total Amount:<%=total %> </h3>
 <a href="CheckOut" class="checkout">CheckOut</a><br><br>
 <a href="Eshop" class="back">Back</a>
 <br><br>

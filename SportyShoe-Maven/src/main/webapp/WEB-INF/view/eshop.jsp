@@ -28,6 +28,8 @@ for(Product product:products)
 	out.print("<br> <br>");
 	out.print("<span style='font-weight:Bold'>Product Category: </span>"+product.getCategory());
 	out.print("<br> <br>");
+	out.print("<span style='font-weight:Bold'>Product Amount: </span>"+product.getAmount());
+	out.print("<br> <br>");
 	out.print("<a href='AddToCart?id="+product.getPid()+"' class='cart'>Add to Cart</a>");
 	out.print("</div>");
 	}

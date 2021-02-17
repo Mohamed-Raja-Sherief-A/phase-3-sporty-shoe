@@ -18,9 +18,11 @@
 for(Product product:products)
 {
 	out.print("<div class='subcontainer'>");
-			out.print("<span style='font-weight:Bold'>ProductName: </span>"+product.getName());
-			out.print("<br> <br>");
-			out.print("<span style='font-weight:Bold'>Product Category: </span>"+product.getCategory());
+	out.print("<span style='font-weight:Bold'>ProductName: </span>"+product.getName());
+	out.print("<br> <br>");
+	out.print("<span style='font-weight:Bold'>Product Category: </span>"+product.getCategory());		
+	out.print("<br> <br>");
+	out.print("<span style='font-weight:Bold'>Product Amount: </span>"+product.getAmount());		
 	out.print("<br> <br>");
 	out.print("<span style='font-weight:Bold'>Product Status: </span>"+product.getStatus());
 	out.print("<br>");
