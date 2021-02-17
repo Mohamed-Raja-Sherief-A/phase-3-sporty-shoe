@@ -1,0 +1,75 @@
+@charset "ISO-8859-1";
+body
+{
+	font-family:Lucida Sans Unicode;
+	font-weight:normal;
+	text-align: center;
+}
+header
+{
+	font-family:Lucida Sans Unicode;
+	font-weight:normal;
+	font-size:20px;
+}
+.error
+{
+	color:red;
+}
+.container
+{
+	background: white;
+	max-width: 30%;
+	margin:0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3%;
+	padding:20px;
+	box-sizing: border-box;
+	text-align: center;
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container select
+{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:50%;
+	margin-bottom:50px;
+	height:40px;
+	border : 2px solid black;
+	font-family:Lucida Sans Unicode;
+}
+.container input[type="submit"]
+{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:40%;
+	height:30px;
+	background-color:#00cc44;
+	border:none;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	font-family:Lucida Sans Unicode;
+}
+
+.container input[type="submit"]:hover
+{
+background-color:#4dff88;
+}
+
+.container a{
+text-decoration: none;
+display:block;
+border: 1px solid #99ffcc;
+background-color: #99ffcc;	
+width:40%;
+margin-left:auto;
+color:black;
+	margin-right:auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container .delete{
+	
+	border: 1px solid #ff1a1a;
+background-color: #ff1a1a;
+}
