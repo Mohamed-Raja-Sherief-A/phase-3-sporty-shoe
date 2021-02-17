@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -25,9 +26,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+
+
+//IOC configuration and other web configs
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
+@EnableAspectJAutoProxy
 @ComponentScan("com.demo")
 @PropertySource({ "classpath:persistence-mysql.properties" })
 public class BeanConfig implements WebMvcConfigurer {
@@ -36,6 +41,7 @@ public class BeanConfig implements WebMvcConfigurer {
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
+	//method to convert string to int
 	private int getIntProperty(String propName) {
 		
 		String propVal = env.getProperty(propName);
@@ -46,7 +52,7 @@ public class BeanConfig implements WebMvcConfigurer {
 		return intPropVal;
 	}	
 	
-	
+	//View resolver
 	@Bean
 	public ViewResolver viewResolver() {
 		
@@ -58,6 +64,7 @@ public class BeanConfig implements WebMvcConfigurer {
 		return viewResolver;
 	}
 	
+	//C3po datasource initialization
 	@Bean
 	public DataSource myDataSource() {
 		
@@ -66,7 +73,6 @@ public class BeanConfig implements WebMvcConfigurer {
 
 		// set the jdbc driver
 		try {
-			System.out.println("inside try");
 			myDataSource.setDriverClass(env.getProperty("jdbc.driver"));		
 		}
 		catch (PropertyVetoException exc) {
@@ -90,6 +96,8 @@ public class BeanConfig implements WebMvcConfigurer {
 
 		return myDataSource;
 	}
+	
+	//Hibernate property initialization
 	@Bean
 	public Properties getHibernateProperties() {
 
@@ -101,6 +109,8 @@ public class BeanConfig implements WebMvcConfigurer {
 		props.setProperty("hibernate.hbm2ddl.auto", "update");
 		return props;				
 	}
+	
+	//Session Factory initialization
 	@Bean
 	public LocalSessionFactoryBean sessionFactory(){
 		
@@ -114,6 +124,8 @@ public class BeanConfig implements WebMvcConfigurer {
 		
 		return sessionFactory;
 	}
+	
+	//Hibernate Transaction Manager
 	@Bean
 	@Autowired
 	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
@@ -124,6 +136,8 @@ public class BeanConfig implements WebMvcConfigurer {
 
 		return txManager;
 	}	
+	
+	//Resource Mapping
 	 @Override
 	    public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	        registry

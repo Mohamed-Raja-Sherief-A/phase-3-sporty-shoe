@@ -19,7 +19,7 @@ header
 {
 	background: white;
 	width:150px;
-	height:330px;
+	height:450px;
 	padding:30px;
 	margin-top:10px;
 	 margin-left: 20px;
@@ -28,7 +28,6 @@ header
 	vertical-align:top;
 	box-sizing: border-box;
 }
-
 .container{
 	max-width: 60%;
 	height:500px;

@@ -14,14 +14,16 @@
 <header><h1>Product View</h1></header>
 <div class="container">
 <%
-	ArrayList<Product> products=(ArrayList<Product>)request.getAttribute("products");
+	ArrayList<Product> products=(ArrayList<Product>)request.getAttribute("products");//Gets Products from request object
 for(Product product:products)
 {
 	out.print("<div class='subcontainer'>");
-	out.print("<span style='font-weight:Bold'>ProductName: </span>"+product.getName());
+			out.print("<span style='font-weight:Bold'>ProductName: </span>"+product.getName());
+			out.print("<br> <br>");
+			out.print("<span style='font-weight:Bold'>Product Category: </span>"+product.getCategory());
 	out.print("<br> <br>");
-	out.print("<span style='font-weight:Bold'>Product Category: </span>"+product.getCategory());
-	out.print("<br> <br>");
+	out.print("<span style='font-weight:Bold'>Product Status: </span>"+product.getStatus());
+	out.print("<br>");
 	out.print("<a href='ProductUpdate?id="+product.getPid()+"&status=Active' class='enable'>Enable</a>");
 	out.print("<a href='ProductUpdate?id="+product.getPid()+"&status=Inactive' class='disable'>Disable</a>");
 	out.print("</div>");

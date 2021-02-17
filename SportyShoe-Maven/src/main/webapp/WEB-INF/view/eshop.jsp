@@ -17,7 +17,7 @@
 </div>
 <div class="container">
 <%
-	ArrayList<Product> products=(ArrayList<Product>)request.getAttribute("products");
+	ArrayList<Product> products=(ArrayList<Product>)request.getAttribute("products");//gets request object
 for(Product product:products)
 {
 	if(product.getStatus().equals("Active"))

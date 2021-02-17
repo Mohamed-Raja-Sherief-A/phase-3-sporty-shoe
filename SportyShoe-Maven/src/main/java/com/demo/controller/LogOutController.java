@@ -11,9 +11,12 @@ import com.demo.model.UserCredentials;
 
 @Controller
 public class LogOutController {
+	
+	//Mapping LogOut 
 @RequestMapping("/LogOut")
 public String logOut(HttpServletRequest request,Model model)
 {
+	//Invalidates the session
 	HttpSession session=request.getSession();
 	  session.setAttribute("userid", null);
 	  session.setAttribute("username", null);

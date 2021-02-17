@@ -8,14 +8,6 @@
 <link rel="stylesheet" type="text/css" href="resources/css/mainmenu.css">
 </head>
 <body>
-	<%--Validates session 
-	<%
-	String user=(String)session.getAttribute("user");
-	if(user==null)
-	{%>
-	<jsp:forward page="index.jsp"></jsp:forward>	
-	<%}
-	%>--%>
 	<header>Main Menu</header>
 	<div class="container">
 	<a href="showProductMenu">Product Manager</a><br/>

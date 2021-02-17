@@ -20,13 +20,13 @@ import com.demo.model.UserCredentials;
 
 @Controller
 public class LoginController {
-
+	//Repository auto wiring
 	@Autowired
 	private UserDAO userDAO;
-	
+	//Repository auto wiring
 	@Autowired
 	private ProductDAO productDAO;
-	
+	//Maps the login check 
 	@RequestMapping("/LoginCheck")
 	public String loginCheck(@Valid @ModelAttribute("user")UserCredentials user,BindingResult bindingResult,HttpServletRequest request)
 	{
@@ -35,18 +35,18 @@ public class LoginController {
 			return "index";
 		}
 		
-		UserCredentials us=userDAO.credentialsCheck(user);
+		UserCredentials us=userDAO.credentialsCheck(user);//check if the userid and password is valid
 		if(us!=null)
 		{	  ArrayList<Product> cart=new ArrayList<Product>();
 			HttpSession session=request.getSession();
-			session.setAttribute("userid", us.getUid());
-			session.setAttribute("username", us.getUsername());
-			  session.setAttribute("cart", cart);
-			if(user.getUsername().equals("Admin"))
+			session.setAttribute("userid", us.getUid());//sets the session userid
+			session.setAttribute("username", us.getUsername());//sets the session username
+			  session.setAttribute("cart", cart);//sets the session cart
+			if(user.getUsername().equals("Admin")) //If admin redirects to admin page
 			{
 			return "mainmenu";
 			}
-			else
+			else  //Or to the Eshop
 			{ 
 			  request.setAttribute("products", productDAO.getProducts());
 			  return "eshop";

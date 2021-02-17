@@ -7,13 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>My Cart</title>
-<link rel="stylesheet" type="text/css" href="resources/css/cart.css">
+<link rel="stylesheet" type="text/css" href="resources/css/cart.css"><!-- css call -->
 </head>
 <body>
 <header><h1>Cart</h1></header>
 <div class="container">
 <%
-ArrayList<Product> products=(ArrayList<Product>)session.getAttribute("cart");
+ArrayList<Product> products=(ArrayList<Product>)session.getAttribute("cart");//Cart call from session
 for(Product product:products)
 {
 	out.print("<div class='subcontainer'>");

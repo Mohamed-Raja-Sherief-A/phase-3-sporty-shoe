@@ -19,17 +19,22 @@ public class Product {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int pid;
+
 @NotNull(message = "is required")
 @Size(min=1,message="is required")
 @NotBlank(message="is required")
 private String name;
+
 @NotNull(message = "is required")
 @Size(min=1,message="is required")
 @NotBlank(message="is required")
 private String category;
+
 @OneToMany(mappedBy = "product",cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 private List<Order> orders;
+
 private String status;
+
 public Product() {
 	
 }

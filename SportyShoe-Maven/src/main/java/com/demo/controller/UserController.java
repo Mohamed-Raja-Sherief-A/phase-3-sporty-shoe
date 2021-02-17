@@ -17,16 +17,17 @@ import com.demo.model.UserCredentials;
 
 @Controller
 public class UserController {
-
+	//Repository Auto Wiring
 	@Autowired
 	private UserDAO userDAO;
-	
+	//UserForm redirect
 	@RequestMapping("/UserForm")
 	public String userForm(HttpServletRequest request)
 	{
 		request.setAttribute("users", userDAO.getAllUser());
 	 return "UserForm";
 	}
+	//To get user user order history
 @RequestMapping("/ReportGenerator")
 public String reportGenerator(HttpServletRequest request)
 {

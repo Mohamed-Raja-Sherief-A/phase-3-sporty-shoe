@@ -21,15 +21,18 @@ import com.demo.model.UserCredentials;
 
 @Repository
 public class UserDAOimpl implements UserDAO {
-
+	//Session Factory Auto wirirng
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	//Saves user to table
 	@Override
 	@Transactional
 	public void addUser(UserCredentials user) {
 		Session session=sessionFactory.getCurrentSession();
 		session.save(user);
 	}
+	//check for credentials in table return null if not
 	@Override
 	@Transactional
 	public UserCredentials credentialsCheck(@Valid UserCredentials user) {
@@ -45,6 +48,8 @@ public class UserDAOimpl implements UserDAO {
 		return null;
 		
 	}
+	
+	//Get user based on id
 	@Override
 	@Transactional
 	public UserCredentials getUser(int id) {
@@ -52,6 +57,8 @@ public class UserDAOimpl implements UserDAO {
 		UserCredentials user=session.get(UserCredentials.class, id);
 		return user;
 	}
+	
+	//Update Password
 	@Override
 	@Transactional
 	public void ChangePassword(String password, int id) {
@@ -62,6 +69,7 @@ public class UserDAOimpl implements UserDAO {
 		
 		
 	}
+	//Gell all users
 	@Override
 	@Transactional
 	public ArrayList<UserCredentials> getAllUser() {
@@ -70,6 +78,8 @@ public class UserDAOimpl implements UserDAO {
 		ArrayList<UserCredentials> users=(ArrayList<UserCredentials>)query.list();
 		return users;
 	}
+	
+	//Get orders based on id
 	@Override
 	@Transactional
 	public List<Order> getOrders(int id) {

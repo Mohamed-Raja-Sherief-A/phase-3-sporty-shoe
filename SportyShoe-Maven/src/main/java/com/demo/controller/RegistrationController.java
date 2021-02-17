@@ -16,17 +16,17 @@ import com.demo.model.UserCredentials;
 
 @Controller
 public class RegistrationController {
-	
+	//Repository auto wiring
 	@Autowired
 	private UserDAO userDAO;
-	
+	//show registration form
 	@RequestMapping("/RegistrationShowForm")
 	public String showForm(Model model)
 	{
 		model.addAttribute("user", new UserCredentials());
 		 return "registration";
 	}
-	
+	//add new registarion
 	@RequestMapping("/RegistrationAdd")
 	public String addUser(@Valid @ModelAttribute("user") UserCredentials user,BindingResult bindingResult,HttpServletRequest request)
 	{
@@ -37,7 +37,7 @@ public class RegistrationController {
 		request.setAttribute("message", "User Added Succesfully");
 		try
 		{
-	    userDAO.addUser(user);
+	    userDAO.addUser(user);//Method call
 		}
 		catch(Exception e)
 		{
@@ -48,7 +48,7 @@ public class RegistrationController {
 		return "registration";
 		
 	}
-	
+	//for back to login page
 	@RequestMapping("/Registrationback")
 	public String back(Model model)
 	{

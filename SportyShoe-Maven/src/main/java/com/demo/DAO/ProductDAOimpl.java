@@ -13,17 +13,18 @@ import com.demo.model.Product;
 
 @Repository
 public class ProductDAOimpl implements ProductDAO {
-
+//session factory autowriring
 @Autowired
 private SessionFactory sessionFactory;
 
+//adds product to table
 @Transactional
 public  void addProduct(Product product)
 {
 	Session session=sessionFactory.getCurrentSession();
 	session.save(product);
 }
-
+//gets all product from table
 @Transactional
 public  ArrayList<Product> getProducts()
 {
@@ -32,7 +33,7 @@ public  ArrayList<Product> getProducts()
 	ArrayList<Product> products=(ArrayList<Product>) query.list();
 	return products;
 }
-
+//Delete product from table
 @Transactional
 public  void productDelete(int id)
 {
@@ -40,7 +41,7 @@ public  void productDelete(int id)
 	 Product product=session.get(Product.class, id);
 	 session.delete(product);
 }
-
+//Update product in table
 @Transactional
 public  void productUpdate(int id, String status) {
 	Session session=sessionFactory.getCurrentSession();

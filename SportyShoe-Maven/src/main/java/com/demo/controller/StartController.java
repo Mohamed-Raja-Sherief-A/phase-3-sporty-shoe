@@ -9,11 +9,11 @@ import com.demo.model.UserCredentials;
 @Controller
 public class StartController {
 
+	//Initial Page Login Page Transfer
 	@RequestMapping("/")
 	public String showForm(Model model)
 	{
 		model.addAttribute("user", new UserCredentials());
-		System.out.println("inside start controller");
 		return "index";
 	}
 }

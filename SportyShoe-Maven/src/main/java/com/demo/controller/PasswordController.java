@@ -17,9 +17,12 @@ import com.demo.model.UserCredentials;
 
 @Controller
 public class PasswordController {
+	
+	//AutoWires the Repository
 	@Autowired
 	private UserDAO userDAO;
 
+	//Shows the password change form
 	@RequestMapping("/PasswordChangeForm")
 	public String showPasswordChangeForm(Model model)
 	{
@@ -27,32 +30,29 @@ public class PasswordController {
 		return "passwordForm";
 	}
 	
+	//Change password action
 	@RequestMapping("/ChangePassword")
 	public String changePassword(@Valid @ModelAttribute("user") UserCredentials user,BindingResult bindingResult,HttpServletRequest request)
 	{
-		/*if(bindingResult.hasErrors())
-		{
-			System.out.println("inside error");
-			return "passwordForm";
-		}
-		else
-		{*/
-			try
-			{
+		
+		 try
+		 {
 			System.out.println("inside");
 			HttpSession session=request.getSession();
 			int id=(int)session.getAttribute("userid");
-			userDAO.ChangePassword(user.getPassword().trim(),id);
+			userDAO.ChangePassword(user.getPassword().trim(),id);//Method call for setting new password
 			request.setAttribute("message", "password changed");
 			return "passwordForm";
-			}
-			catch (Exception e) {
-				// TODO: handle exception
-				request.setAttribute("message", "pls enter valid values");
-				return "passwordForm";
-			}
+		 }
+		 catch(Exception e)
+		 {
+			 request.setAttribute("message", "Enter valid value");
+			 return "passwordForm";
+		 }
+			
+	 }
 
-		}
+		
 		
 	}
 

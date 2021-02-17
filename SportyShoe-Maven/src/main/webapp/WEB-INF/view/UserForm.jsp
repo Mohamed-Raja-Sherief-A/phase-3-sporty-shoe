@@ -12,14 +12,7 @@
 
 </head>
 <body>
-<%--session management 
-<%
-	String user=(String)session.getAttribute("user");
-	if(user==null)
-	{%>
-	<jsp:forward page="index.jsp"></jsp:forward>	
-	<%}
-	%>--%>
+
 <header><h1>Report Generator</h1></header>
 	<div class="container">
 	<form action="ReportGenerator" method="post">
@@ -28,7 +21,7 @@
 		<%--Display all Users --%>
 		<%	
 		
-		ArrayList<UserCredentials>users=(ArrayList<UserCredentials>)request.getAttribute("users");
+		ArrayList<UserCredentials>users=(ArrayList<UserCredentials>)request.getAttribute("users");//Gets users from request object
 		for(UserCredentials user:users)
 		{
 			if(!user.getUsername().equals("Admin"))

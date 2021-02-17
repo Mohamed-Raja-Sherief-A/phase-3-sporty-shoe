@@ -9,14 +9,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/registration.css">
 </head>
 <body>
-<%--validates session 
-<%
-	String user=(String)session.getAttribute("user");
-	if(user==null)
-	{%>
-	<jsp:forward page="Registrationback"></jsp:forward>	
-	<%}
-	%> --%>
+
 	<header><h1>Change Password</h1></header>
 	<div class="container">
 		<form:form action="ChangePassword" modelAttribute="user"  method="post">

@@ -19,11 +19,14 @@ public class Order {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int oid;
+
 @Temporal(value= TemporalType.TIMESTAMP)
 private Date dateofpurchase;
+
 @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 @JoinColumn(name = "productId")
 private Product product;
+
 @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 @JoinColumn(name="userId")
 private UserCredentials user;

@@ -20,17 +20,21 @@ public class UserCredentials {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int uid;
+
 @NotNull(message = "is required")
 @Size(min=1,message="is required")
 @NotBlank(message="is required")
 @Column(unique = true,length = 20)
 private String username;
+
 @NotNull(message = "is required")
 @Size(min=1,message="is required")
 @NotBlank(message="is required")
 private String password;
+
 @OneToMany(mappedBy = "user", fetch = FetchType.LAZY ,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 private List<Order> orders;
+
 public UserCredentials() {
 	// TODO Auto-generated constructor stub
 }

@@ -17,7 +17,7 @@
 <div class="container">
 <%
 
-List<Order>orders=(List<Order>) request.getAttribute("orders");
+List<Order>orders=(List<Order>) request.getAttribute("orders");//Gets orders from request object
 
 
 for(Order order:orders)
